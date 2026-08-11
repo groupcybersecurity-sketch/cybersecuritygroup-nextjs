@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Marca */
+  --color-brand-blue: #0033a0;
+  --color-brand-blue-deep: #001f5c;
+  --color-brand-cyan: #00aeef;
+  --color-brand-cyan-soft: #7fdcfb;
+
+  /* Superficie */
+  --color-ink: #050b1a;
+  --color-panel: #0a1530;
+  --color-panel-2: #0f1c3d;
+  --color-border: rgba(0, 174, 239, 0.18);
+  --color-muted: #a9b8d8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-blue: var(--color-brand-blue);
+  --color-brand-blue-deep: var(--color-brand-blue-deep);
+  --color-brand-cyan: var(--color-brand-cyan);
+  --color-brand-cyan-soft: var(--color-brand-cyan-soft);
+  --color-ink: var(--color-ink);
+  --color-panel: var(--color-panel);
+  --color-panel-2: var(--color-panel-2);
+  --color-border: var(--color-border);
+  --color-muted: var(--color-muted);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(0, 174, 239, 0.16), transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(0, 51, 160, 0.35), transparent 50%),
+    var(--color-ink);
+}
+
+::selection {
+  background: var(--color-brand-cyan);
+  color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.network-bg {
+  width: 100%;
+  height: 100%;
+}
+
+.network-node {
+  animation: node-pulse 3.6s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes node-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .network-node {
+    animation: none;
+    opacity: 0.85;
+  }
 }

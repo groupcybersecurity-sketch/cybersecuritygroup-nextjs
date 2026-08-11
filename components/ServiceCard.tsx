@@ -1,0 +1,37 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import type { Service } from "@/lib/content";
+import CategoryIcon from "./CategoryIcon";
+
+export default function ServiceCard({ service }: { service: Service }) {
+  return (
+    <motion.div
+      whileHover={{ y: -8 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      id={service.id}
+      className="scroll-mt-28 rounded-2xl border border-white/10 bg-gradient-to-b from-brand-cyan/10 to-panel/90 p-7"
+    >
+      <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-brand-cyan/10 text-brand-cyan">
+        <CategoryIcon category={service.category} />
+      </div>
+      <span className="mt-4 block font-mono text-[11px] uppercase tracking-widest text-brand-cyan-soft">
+        {service.category}
+      </span>
+      <h3 className="mt-2 text-lg font-semibold text-white">{service.title}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-muted">{service.summary}</p>
+      <div className="mt-5 flex items-center justify-between">
+        <span className="rounded-full border border-brand-cyan/40 px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-brand-cyan-soft">
+          {service.status}
+        </span>
+        <Link
+          href="/contacto"
+          className="text-sm font-medium text-white/70 transition-colors hover:text-brand-cyan"
+        >
+          Consultar →
+        </Link>
+      </div>
+    </motion.div>
+  );
+}
