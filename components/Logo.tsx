@@ -13,28 +13,33 @@ export default function Logo({
     <span className="inline-flex items-center gap-2.5 group">
       <motion.svg
         width={size}
-        height={(size * 56) / 48}
-        viewBox="0 0 48 56"
+        height={size}
+        viewBox="-90 -90 180 180"
         fill="none"
-        whileHover={{ rotate: -6, scale: 1.08 }}
+        whileHover={{ rotate: 18, scale: 1.08 }}
         transition={{ type: "spring", stiffness: 260, damping: 14 }}
       >
         <defs>
-          <linearGradient id="shieldGrad" x1="4" y1="2" x2="44" y2="54" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#0033A0" />
-            <stop offset="1" stopColor="#00AEEF" />
+          <linearGradient id="ringOuter" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#00AEEF" />
+            <stop offset="100%" stopColor="#0033A0" />
+          </linearGradient>
+          <linearGradient id="ringInner" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#0033A0" />
+            <stop offset="100%" stopColor="#00AEEF" />
           </linearGradient>
         </defs>
         <path
-          d="M24 2 L44 10 V26 C44 39 36 49 24 54 C12 49 4 39 4 26 V10 Z"
-          fill="url(#shieldGrad)"
+          d="M 0,-72 A 72,72 0 1 1 -62.35,-37.18"
+          stroke="url(#ringOuter)"
+          strokeWidth={12}
+          strokeLinecap="round"
         />
         <path
-          d="M15 27 L21 33 L34 18"
-          stroke="#FFFFFF"
-          strokeWidth={4.5}
+          d="M 13.5,-51.8 A 51.8,51.8 0 1 0 -13.5,51.8"
+          stroke="url(#ringInner)"
+          strokeWidth={10}
           strokeLinecap="round"
-          strokeLinejoin="round"
         />
       </motion.svg>
       {withWordmark && (

@@ -17,10 +17,42 @@ const plexMono = IBM_Plex_Mono({
   weight: ["500", "600"],
 });
 
+const siteUrl = "https://cybersecuritygroup.cl";
+const title = "CyberSecurity Group | Ciberseguridad, GRC y Gestión de Riesgos";
+const description =
+  "Consultora especializada en ciberseguridad: auditorías, pentesting, GRC, respuesta a incidentes, capacitación y arquitectura de seguridad.";
+
 export const metadata: Metadata = {
-  title: "CyberSecurity Group | Ciberseguridad, GRC y Gestión de Riesgos",
-  description:
-    "Consultora especializada en ciberseguridad: auditorías, pentesting, GRC, respuesta a incidentes, capacitación y arquitectura de seguridad.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: title,
+    template: "%s | CyberSecurity Group",
+  },
+  description,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
+    ],
+    apple: [{ url: "/favicon-180.png", sizes: "180x180", type: "image/png" }],
+  },
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: "CyberSecurity Group",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "CyberSecurity Group" }],
+    locale: "es_CL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
