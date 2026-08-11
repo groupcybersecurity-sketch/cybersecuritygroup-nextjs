@@ -2,10 +2,14 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import type { Service } from "@/lib/content";
+import { partners } from "@/lib/content";
 import CategoryIcon from "./CategoryIcon";
 
 export default function ServiceCard({ service }: { service: Service }) {
+  const partner = partners.find((p) => p.slug === service.partnerSlug);
+
   return (
     <motion.div
       whileHover={{ y: -8 }}
@@ -21,6 +25,28 @@ export default function ServiceCard({ service }: { service: Service }) {
       </span>
       <h3 className="mt-2 text-lg font-semibold text-white">{service.title}</h3>
       <p className="mt-3 text-sm leading-relaxed text-muted">{service.summary}</p>
+
+      {partner && (
+        <div className="mt-4 flex items-center gap-2.5 border-t border-dashed border-white/10 pt-4">
+          <Image
+            src={partner.logo}
+            alt={`Logo de ${partner.name}`}
+            width={24}
+            height={24}
+            className="rounded-md border border-white/10"
+          />
+          <span className="text-xs text-muted">
+            Servicio potenciado con{" "}
+            <Link
+              href="/quienes-somos#aliados"
+              className="font-semibold text-brand-cyan-soft hover:underline"
+            >
+              {partner.name}
+            </Link>
+          </span>
+        </div>
+      )}
+
       <div className="mt-5 flex items-center justify-between">
         <span className="rounded-full border border-brand-cyan/40 px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-brand-cyan-soft">
           {service.status}

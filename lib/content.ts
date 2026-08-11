@@ -31,6 +31,7 @@ export interface Service {
   summary: string;
   description: string;
   status: string;
+  partnerSlug?: string;
 }
 
 export const services: Service[] = [
@@ -53,8 +54,9 @@ export const services: Service[] = [
     summary:
       "Explotación controlada de redes, aplicaciones web y APIs para demostrar el impacto real de una vulnerabilidad, no solo su existencia.",
     description:
-      "Pruebas de penetración en redes internas y externas, aplicaciones web, APIs y aplicaciones móviles. Simulamos ataques reales bajo un alcance y ventana de tiempo acordados. Todo hallazgo se documenta con evidencia reproducible y una propuesta concreta de remediación.",
+      "Pruebas de penetración en redes internas y externas, aplicaciones web, APIs y aplicaciones móviles. Simulamos ataques reales bajo un alcance y ventana de tiempo acordados, y como parte de nuestra metodología incorporamos Offensive para ampliar la cobertura de pruebas y acelerar la detección de vulnerabilidades. Todo hallazgo lo valida nuestro equipo y se documenta con evidencia reproducible y una propuesta concreta de remediación.",
     status: "Explotación controlada",
+    partnerSlug: "offensive",
   },
   {
     slug: "grc",
@@ -99,6 +101,25 @@ export const services: Service[] = [
     description:
       "Diseño y evaluación de arquitecturas de red, aplicaciones y nube alineadas a objetivos de negocio, cumplimiento regulatorio y marcos internacionales de seguridad, con foco en segmentación, gestión de identidades y security by design.",
     status: "Diseño seguro",
+  },
+];
+
+export interface Partner {
+  slug: string;
+  name: string;
+  role: string;
+  logo: string;
+  description: string;
+}
+
+export const partners: Partner[] = [
+  {
+    slug: "offensive",
+    name: "Offensive",
+    role: "Pentesting / hacking ético",
+    logo: "/partners/offensive-logo.png",
+    description:
+      "Plataforma que integramos en nuestra metodología de pentesting para ampliar la cobertura de pruebas y acelerar la detección de vulnerabilidades. Cada hallazgo lo valida y prioriza nuestro equipo antes de llegar al informe final.",
   },
 ];
 

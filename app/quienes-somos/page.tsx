@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Section, { Eyebrow, Reveal } from "@/components/Section";
 import CtaBand from "@/components/CtaBand";
+import { partners } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Quiénes somos | CyberSecurity Group",
@@ -95,6 +97,44 @@ export default function QuienesSomosPage() {
                 <span className="rounded-full border border-brand-cyan/40 px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-brand-cyan-soft">
                   {step.status}
                 </span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="aliados">
+        <Reveal className="max-w-2xl">
+          <Eyebrow>Metodología</Eyebrow>
+          <h2 className="mt-5 text-3xl font-bold text-white md:text-4xl">
+            Aliados tecnológicos
+          </h2>
+          <p className="mt-4 text-muted">
+            Además de nuestro equipo, incorporamos herramientas y plataformas
+            especializadas en servicios puntuales para ampliar cobertura y
+            profundidad sin depender solo del trabajo manual.
+          </p>
+        </Reveal>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {partners.map((partner, i) => (
+            <Reveal key={partner.slug} delay={i * 0.08}>
+              <div className="flex items-center gap-5 rounded-2xl border border-white/10 bg-panel/80 p-7">
+                <Image
+                  src={partner.logo}
+                  alt={`Logo de ${partner.name}`}
+                  width={64}
+                  height={64}
+                  className="flex-shrink-0 rounded-2xl border border-white/10"
+                />
+                <div>
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-brand-cyan-soft">
+                    {partner.role}
+                  </span>
+                  <h3 className="mt-1 font-semibold text-white">{partner.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {partner.description}
+                  </p>
+                </div>
               </div>
             </Reveal>
           ))}
