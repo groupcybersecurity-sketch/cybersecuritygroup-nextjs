@@ -54,6 +54,9 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   referrer: "strict-origin-when-cross-origin",
+  verification: {
+    google: "w5exBwTEM9MHQzFyw3EoLBBtYFgvrQL4yWIKi2vp9Cw",
+  },
 };
 
 // Refuerzo de CSP a nivel de documento. GitHub Pages no permite configurar
