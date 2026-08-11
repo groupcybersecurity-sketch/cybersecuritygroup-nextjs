@@ -148,6 +148,35 @@ export interface NewsPost {
 
 export const news: NewsPost[] = [
   {
+    slug: "pentesting-chile-guia",
+    title:
+      "Pentesting en Chile: qué es, cuándo contratarlo y qué esperar del informe final",
+    date: "11 ago 2026",
+    category: "Pentesting",
+    excerpt:
+      "No todos los pentest son iguales, y no toda empresa necesita el mismo alcance. Guía práctica para entender qué estás contratando y cómo evaluar el resultado.",
+    body: [
+      "\"Pentesting\" se usa como si fuera una sola cosa, pero en la práctica el alcance cambia mucho según qué se está probando: red interna, aplicación web, API, infraestructura cloud o una combinación de varias. Antes de cotizar, conviene tener claro qué activo específico quieres poner a prueba y por qué — eso define el tipo de prueba, no al revés.",
+      "En Chile, la señal más clara de que es momento de contratar un pentest suele ser una de tres: vas a lanzar o actualizar un sistema que maneja datos sensibles, un cliente o socio lo exige como requisito contractual, o necesitas evidencia concreta para un proceso de certificación o cumplimiento normativo, como la Ley 21.663.",
+      "Un informe de pentest serio no es una lista de vulnerabilidades genéricas sacadas de un escáner automático. Debe incluir evidencia reproducible de cada hallazgo, el impacto real en el negocio si se explota, y una priorización clara de qué corregir primero — no cien páginas donde todo aparece como \"crítico\".",
+      "Nuestra metodología combina pruebas manuales de nuestro equipo con la cobertura adicional de Offensive, y cada hallazgo se valida antes de llegar al informe final, para que lo que recibas sea accionable y no una lista que nadie sabe por dónde empezar.",
+    ],
+  },
+  {
+    slug: "iso-27001-chile-guia",
+    title: "ISO 27001 en Chile: guía práctica para certificar tu empresa",
+    date: "11 ago 2026",
+    category: "Cumplimiento",
+    excerpt:
+      "Certificarse en ISO 27001 no es solo documentación: es construir un sistema de gestión de seguridad que realmente se sostenga en el tiempo. Qué esperar del proceso.",
+    body: [
+      "ISO 27001 es la norma internacional de referencia para sistemas de gestión de seguridad de la información, y cada vez más empresas en Chile la piden como requisito para cerrar contratos con clientes grandes o para operar en sectores regulados. El error más común es tratarla como un ejercicio de documentación en vez de como un cambio real en cómo opera la organización.",
+      "El proceso típico parte con un diagnóstico de brecha (gap analysis) frente a los controles del Anexo A, seguido de la definición de una política de seguridad, una matriz de riesgos y los procedimientos operativos que sostienen esos controles en el día a día — no solo en el papel.",
+      "La certificación la otorga un organismo externo acreditado, pero el trabajo previo de preparación —y sobre todo, que el sistema de gestión sobreviva a la primera auditoría de seguimiento— es donde se juega el resultado real del proceso.",
+      "Acompañamos a empresas chilenas en cada etapa: desde el diagnóstico inicial hasta la preparación para la auditoría de certificación, priorizando qué implementar primero según el riesgo real del negocio, no según una checklist genérica.",
+    ],
+  },
+  {
     slug: "desarrollo-seguro",
     title:
       "Desarrollo seguro: las 5 fallas que más vemos en auditorías a código en Chile",
