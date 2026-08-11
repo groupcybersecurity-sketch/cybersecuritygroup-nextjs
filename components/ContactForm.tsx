@@ -118,8 +118,12 @@ export default function ContactForm() {
       )}
 
       <p className="text-xs text-muted">
-        Tus datos se usan solo para responder tu solicitud y no se comparten
-        con terceros.
+        Tus datos se usan solo para responder tu solicitud. Más detalles en
+        nuestra{" "}
+        <a href="/politica-de-privacidad" className="underline hover:text-white">
+          política de privacidad
+        </a>
+        .
       </p>
       <button
         type="submit"
