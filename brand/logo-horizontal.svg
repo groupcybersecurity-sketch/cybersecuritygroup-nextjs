@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120">
+  <defs>
+    <linearGradient id="ringOuterH" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00AEEF"/>
+      <stop offset="100%" stop-color="#0033A0"/>
+    </linearGradient>
+    <linearGradient id="ringInnerH" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0033A0"/>
+      <stop offset="100%" stop-color="#00AEEF"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(60,60)">
+    <path d="M 0,-48 A 48,48 0 1 1 -41.57,-24.79"
+      fill="none" stroke="url(#ringOuterH)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 9,-34.5 A 34.5,34.5 0 1 0 -9,34.5"
+      fill="none" stroke="url(#ringInnerH)" stroke-width="6.6" stroke-linecap="round"/>
+  </g>
+  <text x="132" y="76" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="42" font-weight="600">
+    <tspan fill="#FFFFFF">Cyber</tspan><tspan fill="#00AEEF">Security</tspan><tspan fill="#FFFFFF"> Group</tspan>
+  </text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220">
+  <defs>
+    <linearGradient id="ringOuterV" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00AEEF"/>
+      <stop offset="100%" stop-color="#0033A0"/>
+    </linearGradient>
+    <linearGradient id="ringInnerV" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0033A0"/>
+      <stop offset="100%" stop-color="#00AEEF"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(160,70)">
+    <path d="M 0,-56 A 56,56 0 1 1 -48.5,-28.9"
+      fill="none" stroke="url(#ringOuterV)" stroke-width="9.5" stroke-linecap="round"/>
+    <path d="M 10.5,-40.3 A 40.3,40.3 0 1 0 -10.5,40.3"
+      fill="none" stroke="url(#ringInnerV)" stroke-width="7.8" stroke-linecap="round"/>
+  </g>
+  <text x="160" y="172" text-anchor="middle" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="30" font-weight="600">
+    <tspan fill="#FFFFFF">Cyber</tspan><tspan fill="#00AEEF">Security</tspan>
+  </text>
+  <text x="160" y="202" text-anchor="middle" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="30" font-weight="600" fill="#FFFFFF">
+    Group
+  </text>
+</svg>
