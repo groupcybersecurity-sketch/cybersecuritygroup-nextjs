@@ -4,11 +4,13 @@ import { useRef, useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { services } from "@/lib/content";
 
+const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const loadedAt = useRef(Date.now());
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
 
@@ -17,14 +19,22 @@ export default function ContactForm() {
     const elapsed = Date.now() - loadedAt.current;
 
     // Un bot que rellena el honeypot, o que envía en menos de 2s, se descarta en silencio.
-    if (honeypot || elapsed < 2000) {
+    if (honeypot || elapsed < 2000 || !FORMSPREE_ENDPOINT) {
       setStatus("error");
       return;
     }
 
-    // Nota: formulario de UI. La conexión a un backend (Formspree u otro)
-    // se define en una siguiente etapa.
-    setStatus("sent");
+    setStatus("sending");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      setStatus(res.ok ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (status === "sent") {
@@ -113,9 +123,10 @@ export default function ContactForm() {
       </p>
       <button
         type="submit"
-        className="mt-1 inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(0,174,239,0.35)] transition-shadow hover:shadow-[0_16px_40px_rgba(0,174,239,0.5)]"
+        disabled={status === "sending"}
+        className="mt-1 inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(0,174,239,0.35)] transition-shadow hover:shadow-[0_16px_40px_rgba(0,174,239,0.5)] disabled:opacity-60"
       >
-        Enviar mensaje
+        {status === "sending" ? "Enviando..." : "Enviar mensaje"}
       </button>
     </form>
   );
