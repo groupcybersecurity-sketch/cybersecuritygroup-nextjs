@@ -1,14 +1,27 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { services } from "@/lib/content";
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
+  const loadedAt = useRef(Date.now());
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    // Honeypot: campo invisible para personas, los bots suelen rellenarlo.
+    const honeypot = (form.elements.namedItem("sitio-web") as HTMLInputElement)?.value;
+    const elapsed = Date.now() - loadedAt.current;
+
+    // Un bot que rellena el honeypot, o que envía en menos de 2s, se descarta en silencio.
+    if (honeypot || elapsed < 2000) {
+      setStatus("error");
+      return;
+    }
+
     // Nota: formulario de UI. La conexión a un backend (Formspree u otro)
     // se define en una siguiente etapa.
     setStatus("sent");
@@ -76,6 +89,24 @@ export default function ContactForm() {
           className={inputClass}
         />
       </Field>
+      {/* Honeypot anti-spam: invisible para personas, visible para bots */}
+      <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="sitio-web">No completar este campo</label>
+        <input
+          id="sitio-web"
+          name="sitio-web"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
+      {status === "error" && (
+        <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+          No pudimos procesar tu solicitud. Intenta nuevamente.
+        </p>
+      )}
+
       <p className="text-xs text-muted">
         Tus datos se usan solo para responder tu solicitud y no se comparten
         con terceros.

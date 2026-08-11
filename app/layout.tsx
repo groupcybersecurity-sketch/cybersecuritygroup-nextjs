@@ -53,7 +53,21 @@ export const metadata: Metadata = {
     description,
     images: ["/og-image.png"],
   },
+  referrer: "strict-origin-when-cross-origin",
 };
+
+// Refuerzo de CSP a nivel de documento. GitHub Pages no permite configurar
+// cabeceras HTTP reales (ver SECURITY.md) — esta meta-CSP es una capa
+// adicional en el propio HTML, no un reemplazo de la cabecera real.
+// 'unsafe-inline' es necesario en script-src porque Next.js inyecta un
+// <script> inline por página (payload de hidratación __NEXT_DATA__) en
+// un export estático — sin nonce/servidor no hay forma de evitarlo sin
+// romper la hidratación de React. En style-src es por los estilos que
+// Framer Motion aplica inline en tiempo de ejecución.
+const CSP =
+  "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; " +
+  "img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io; " +
+  "object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -61,6 +75,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="es-CL"
       className={`${plexSans.variable} ${plexMono.variable} h-full antialiased`}
     >
+      <head>
+        <meta httpEquiv="Content-Security-Policy" content={CSP} />
+      </head>
       <body className="min-h-full flex flex-col bg-ink text-white">
         <MotionProvider>
           <Navbar />
