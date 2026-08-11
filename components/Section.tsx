@@ -26,7 +26,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`${alt ? "bg-panel/60 border-y border-white/5" : ""} py-20 md:py-28 ${className}`}
+      className={`${alt ? "bg-gradient-to-b from-transparent via-panel/50 to-transparent" : ""} py-20 md:py-28 ${className}`}
     >
       <div className="mx-auto max-w-6xl px-6">{children}</div>
     </section>

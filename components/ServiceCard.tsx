@@ -15,7 +15,7 @@ export default function ServiceCard({ service }: { service: Service }) {
       whileHover={{ y: -8 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       id={service.id}
-      className="scroll-mt-28 rounded-2xl border border-white/10 bg-gradient-to-b from-brand-cyan/10 to-panel/90 p-7"
+      className="scroll-mt-28 rounded-2xl border border-white/10 bg-panel/80 p-7"
     >
       <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-brand-cyan/10 text-brand-cyan">
         <CategoryIcon category={service.category} />
