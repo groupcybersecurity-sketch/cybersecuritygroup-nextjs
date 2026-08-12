@@ -22,6 +22,7 @@ const DKIM_SELECTORS = [
   "default",
   "mail",
   "dkim",
+  "cf2024-1",
 ];
 
 function normalizeDomain(input: string) {
