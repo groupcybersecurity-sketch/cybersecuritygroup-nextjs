@@ -24,6 +24,14 @@ const values = [
   },
 ];
 
+const certifications = [
+  { acronym: "OSCP", name: "Offensive Security Certified Professional" },
+  { acronym: "CEH", name: "Certified Ethical Hacker" },
+  { acronym: "ISO 27001 LA", name: "Lead Auditor ISO/IEC 27001" },
+  { acronym: "eJPT v2", name: "eLearnSecurity Junior Penetration Tester" },
+  { acronym: "AZ-900", name: "Microsoft Azure Fundamentals" },
+];
+
 const steps = [
   {
     id: "01",
@@ -70,6 +78,43 @@ export default function QuienesSomosPage() {
               <div className="h-full rounded-2xl border border-white/10 bg-panel/80 p-7">
                 <h3 className="text-lg font-semibold text-white">{v.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted">{v.body}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <Reveal className="max-w-2xl">
+          <Eyebrow>Credenciales</Eyebrow>
+          <h2 className="mt-5 text-3xl font-bold text-white md:text-4xl">
+            Certificaciones del equipo
+          </h2>
+        </Reveal>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {certifications.map((cert, i) => (
+            <Reveal key={cert.acronym} delay={i * 0.06}>
+              <div className="h-full rounded-2xl border border-white/10 bg-panel/80 p-6 text-center">
+                <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-brand-cyan/10 text-brand-cyan">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="8" r="5" />
+                    <path d="M8.5 12.5 7 21l5-2.5L17 21l-1.5-8.5" />
+                  </svg>
+                </div>
+                <p className="mt-3 font-mono text-sm font-semibold text-white">
+                  {cert.acronym}
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-muted">{cert.name}</p>
               </div>
             </Reveal>
           ))}
