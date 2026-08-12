@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Section, { Eyebrow, Reveal } from "@/components/Section";
 import CtaBand from "@/components/CtaBand";
-import CertificationsMarquee from "@/components/CertificationsMarquee";
 import { partners } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -75,16 +74,6 @@ export default function QuienesSomosPage() {
             </Reveal>
           ))}
         </div>
-      </Section>
-
-      <Section>
-        <Reveal className="max-w-2xl">
-          <Eyebrow>Credenciales</Eyebrow>
-          <h2 className="mt-5 text-3xl font-bold text-white md:text-4xl">
-            Certificaciones del equipo
-          </h2>
-        </Reveal>
-        <CertificationsMarquee />
       </Section>
 
       <Section>
