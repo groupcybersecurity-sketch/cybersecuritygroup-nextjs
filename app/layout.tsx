@@ -69,7 +69,7 @@ export const metadata: Metadata = {
 // Framer Motion aplica inline en tiempo de ejecución.
 const CSP =
   "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; " +
-  "img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io; " +
+  "img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io https://cloudflare-dns.com; " +
   "object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -13,6 +13,7 @@ export const nav = [
       { label: "Arquitectura de seguridad", href: "/servicios#arquitectura" },
     ],
   },
+  { label: "Verificador", href: "/verificador" },
   { label: "Noticias", href: "/noticias" },
   { label: "Contacto", href: "/contacto" },
 ];
