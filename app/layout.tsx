@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MotionProvider from "@/components/MotionProvider";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const plexSans = IBM_Plex_Sans({
   variable: "--font-sans",
@@ -86,6 +87,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
+          <WhatsAppFloat />
         </MotionProvider>
       </body>
     </html>
