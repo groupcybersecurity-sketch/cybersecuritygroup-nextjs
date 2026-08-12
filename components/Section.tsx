@@ -15,19 +15,14 @@ export function Eyebrow({ children }: { children: ReactNode }) {
 export default function Section({
   children,
   className = "",
-  alt = false,
   id,
 }: {
   children: ReactNode;
   className?: string;
-  alt?: boolean;
   id?: string;
 }) {
   return (
-    <section
-      id={id}
-      className={`${alt ? "bg-gradient-to-b from-transparent via-panel/50 to-transparent" : ""} py-20 md:py-28 ${className}`}
-    >
+    <section id={id} className={`py-20 md:py-28 ${className}`}>
       <div className="mx-auto max-w-6xl px-6">{children}</div>
     </section>
   );

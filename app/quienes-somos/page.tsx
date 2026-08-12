@@ -76,7 +76,7 @@ export default function QuienesSomosPage() {
         </div>
       </Section>
 
-      <Section alt>
+      <Section>
         <Reveal className="max-w-2xl">
           <Eyebrow>Cómo trabajamos</Eyebrow>
           <h2 className="mt-5 text-3xl font-bold text-white md:text-4xl">

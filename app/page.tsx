@@ -36,7 +36,7 @@ export default function Home() {
         </Reveal>
       </Section>
 
-      <Section alt id="servicios">
+      <Section id="servicios">
         <Reveal className="max-w-2xl">
           <Eyebrow>Servicios</Eyebrow>
           <h2 className="mt-5 text-3xl font-bold text-white md:text-4xl">

@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="absolute inset-0 opacity-70">
         <NetworkBackground />
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/20 via-ink/70 to-ink" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/20 via-ink/70 to-ink/90" />
 
       <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-36">
         <Eyebrow>Auditorías · Pentesting · GRC · Respuesta a incidentes</Eyebrow>
